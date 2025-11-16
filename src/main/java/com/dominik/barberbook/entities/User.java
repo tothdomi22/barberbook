@@ -4,13 +4,15 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 /** Represents the user. Contains information about their name, phone number and credentials. */
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "users")
 public class User {
   @Id
@@ -35,7 +37,8 @@ public class User {
   private String password;
 
   @Column(name = "role")
-  private String role;
+  @Enumerated(EnumType.STRING)
+  private Role role;
 
   @OneToMany(mappedBy = "user")
   private Set<Appointment> appointments = new LinkedHashSet<>();
