@@ -1,4 +1,4 @@
-package com.dominik.barberbook.dtos;
+package com.dominik.barberbook.dtos.admin.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

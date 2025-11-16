@@ -1,8 +1,8 @@
 package com.dominik.barberbook.mappers;
 
-import com.dominik.barberbook.dtos.UserAdminUpdateRequest;
-import com.dominik.barberbook.dtos.UserCreationRequest;
-import com.dominik.barberbook.dtos.UserDto;
+import com.dominik.barberbook.dtos.admin.user.UserAdminUpdateRequest;
+import com.dominik.barberbook.dtos.admin.user.UserCreationRequest;
+import com.dominik.barberbook.dtos.user.UserDto;
 import com.dominik.barberbook.entities.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;

@@ -1,4 +1,4 @@
-package com.dominik.barberbook.dtos;
+package com.dominik.barberbook.dtos.admin.user;
 
 import com.dominik.barberbook.entities.Role;
 import lombok.Data;
