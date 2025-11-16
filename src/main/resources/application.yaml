@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: barberbook
+  datasource:
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?createDatabaseIfNotExist=true
+    username: ${DB_USER}
+    password: ${DB_PASS}
+  jpa:
+    show-sql: true
