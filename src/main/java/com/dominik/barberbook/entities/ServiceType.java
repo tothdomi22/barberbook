@@ -1,7 +1,6 @@
 package com.dominik.barberbook.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import java.time.LocalTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -19,14 +18,16 @@ public class ServiceType {
   @Column(name = "id")
   private Integer id;
 
-  @NotNull
   @Column(name = "type")
   private String type;
 
-  @NotNull
   @Column(name = "length")
   private LocalTime length;
 
   @OneToMany(mappedBy = "serviceType")
   private Set<Appointment> appointments = new LinkedHashSet<>();
+
+  public void normalizeType() {
+    setType(getType().toLowerCase().replace(" ", "_"));
+  }
 }
