@@ -27,10 +27,10 @@ public class Appointment {
   @NotNull
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "user_id")
-  private com.dominik.barberbook.entities.User user;
+  private User user;
 
   @NotNull
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "service_type_id")
-  private com.dominik.barberbook.entities.ServiceType serviceType;
+  private ServiceType serviceType;
 }
