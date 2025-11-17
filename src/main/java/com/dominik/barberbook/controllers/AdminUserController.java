@@ -10,6 +10,7 @@ import java.util.Map;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 public class AdminUserController {
   private final UserRepository userRepository;
   private final UserMapper userMapper;
+  private final PasswordEncoder passwordEncoder;
 
   @PostMapping("/{id}")
   public ResponseEntity<?> getUser(@PathVariable(name = "id") Integer id) {
@@ -36,6 +38,7 @@ public class AdminUserController {
           .body(Map.of("error", "User already exists!"));
     }
     var user = userMapper.toEntity(request);
+    user.setPassword(passwordEncoder.encode(user.getPassword()));
     user.setRole(Role.USER);
     var savedUser = userRepository.save(user);
     return ResponseEntity.status(HttpStatus.CREATED).body(userMapper.toDto(savedUser));
